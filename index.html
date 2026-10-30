@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brownie da Felicidade – monte seu copo</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Pacifico&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+<div class="topbar">Feira do Empreendedorismo 2026 · Escola Estadual Nilza Luzia de Souza Butta</div>
+<svg class="drip" viewBox="0 0 800 84" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H800V30C786 30 782 40 782 52C782 66 766 66 766 52C766 38 752 32 734 34C716 36 712 46 712 66C712 82 692 82 692 66C692 46 680 34 656 34C630 34 626 44 622 52C618 62 602 62 600 52C596 36 580 32 556 34C534 36 530 48 530 74C530 88 508 88 508 74C508 46 498 34 470 34C444 34 440 44 438 54C436 66 420 66 418 54C414 38 398 32 372 34C350 36 346 50 346 62C346 76 326 76 326 62C326 44 316 34 290 34C266 34 262 46 258 56C254 70 238 70 236 56C232 38 222 32 196 34C172 36 168 48 168 78C168 92 146 92 146 78C146 48 138 34 112 34C88 34 82 44 80 52C78 64 62 64 60 52C56 36 44 30 22 32C8 33 0 38 0 42Z"/></svg>
+
+<main class="wrap">
+  <header class="hero">
+    <div>
+      <h1>BROWNIE<span class="script">da Felicidade</span></h1>
+      <p class="lead">Brownie molhadinho, fruta, recheio cremoso, mousse e chantyninho num copo de 300 ml. Monte o seu do seu jeito.</p>
+      <div class="facts"><span class="fact">Sexta, 13/11</span><span class="fact">Copo de 300 ml</span><span class="fact">Entregas no dia (taxa por conta do cliente)</span></div>
+      <a class="cta" href="#montar">Montar meu copo</a>
+    </div>
+    <div class="hero-pic">
+      <img src="img/copo.webp" alt="Copo de brownie com morango, recheio cremoso e cobertura de chocolate">
+      <div class="price"><small>A PARTIR DE</small><b>R$ 10</b><small>o copo</small></div>
+    </div>
+  </header>
+
+  <section id="montar" aria-labelledby="t-montar">
+    <h2 class="sec-title reveal" id="t-montar">Monte seu copo</h2>
+    <p class="sec-sub reveal">Todo copo vem com uma camada de cada ingrediente. Quer mais de alguma coisa? Cada camada extra custa R$ 2.</p>
+
+    <div class="builder">
+      <aside class="cupbox reveal" aria-live="polite">
+        <div class="cupphoto"><img id="cupImg" src="img/copo.webp" alt="Seu Copo da Felicidade"></div><div class="badges" id="badges"></div>
+        <div class="total" id="total">R$ 10,00</div>
+        <div class="total-note" id="totalNote">1 copo, sem camadas extras</div>
+      </aside>
+
+      <div>
+        <div class="panel reveal">
+          <h3>Escolha a fruta</h3>
+          <p class="hint">Uma camada de fruta já vem no copo.</p>
+          <div class="chips" id="frutas"></div>
+        </div>
+        <div class="panel reveal">
+          <h3>Escolha o recheio</h3>
+          <p class="hint">Uma camada de recheio já vem no copo.</p>
+          <div class="chips" id="recheios"></div>
+        </div>
+        <div class="panel reveal">
+          <h3>O que já vem no copo</h3>
+          <ul class="base-list" id="baseList"></ul>
+        </div>
+        <div class="panel reveal">
+          <h3>Camadas extras</h3>
+          <p class="hint">R$ 2 por camada a mais de qualquer ingrediente.</p>
+          <div id="extras"></div>
+        </div>
+        <div class="panel reveal">
+          <h3>Seu pedido</h3>
+          <div class="extra" style="border:0;padding-top:0">
+            <div class="nm">Quantidade de copos<small>Todos iguais ao copo montado</small></div>
+            <div class="step"><button type="button" id="qMinus" aria-label="Menos um copo">−</button><output id="qty">1</output><button type="button" id="qPlus" aria-label="Mais um copo">+</button></div>
+          </div>
+          <div class="field"><label for="nome">Seu nome</label><input id="nome" autocomplete="name" placeholder="Como devemos te chamar?"></div>
+          <div class="field">
+            <label>Como você quer receber?</label>
+            <div class="chips" role="radiogroup" aria-label="Forma de receber">
+              <label class="chip"><input type="radio" name="receber" value="Retirar na feira" checked><span>Retirar na feira</span></label>
+              <label class="chip"><input type="radio" name="receber" value="Entrega"><span>Entrega no dia</span></label>
+            </div>
+          </div>
+          <div class="field" id="endBox" hidden><label for="end">Endereço para entrega</label><p class="hint" style="margin:0;font-size:14px;color:var(--soft)">A taxa de entrega é por conta do cliente e não entra no total abaixo.</p><input id="end" autocomplete="street-address" placeholder="Rua, número e bairro"></div>
+          <div class="field"><label for="obs">Observação (opcional)</label><textarea id="obs" rows="2" placeholder="Ex.: sem chantyninho em cima"></textarea></div>
+          <div class="row">
+            <button type="button" class="cta" id="zap" style="margin-top:0">Finalizar pedido</button>
+            <button type="button" class="btn2" id="copy">Copiar pedido</button>
+          </div>
+          <p class="err" id="err" role="alert"></p>
+          <p class="ok" id="ok" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-info">
+    <div class="info">
+      <div class="reveal">
+        <h2 class="sec-title" id="t-info">Onde encontrar</h2>
+        <dl>
+          <div><dt>Quando</dt><dd>Sexta-feira, 13 de novembro de 2026</dd></div>
+          <div><dt>Onde</dt><dd>Quadra da Escola Estadual Nilza Luzia de Souza Butta – Av. Getúlio Vargas, 1115, Caravelas, Ipatinga – MG</dd></div>
+          <div><dt>Entregas</dt><dd>Fazemos entregas no dia da feira. A taxa de entrega é por conta do cliente.</dd></div>
+          <div><dt>Quem faz</dt><dd>Felicitta, a empresa da turma 204 do 2º ano do Ensino Médio, com produção artesanal.</dd></div>
+        </dl>
+      </div>
+      <div class="imgwrap reveal"><img src="img/copos.webp" alt="Três copos de brownie com camadas de creme, morango e calda de chocolate"></div>
+    </div>
+  </section>
+</main>
+
+<div class="done" id="done" hidden role="dialog" aria-modal="true" aria-labelledby="payT">
+  <div class="done-card" id="payStep">
+    <h2 id="payT">Pague com Pix</h2>
+    <div class="pay-total" id="payTotal">R$ 10,00</div>
+    <div class="qr" id="qr" aria-label="QR Code Pix com o valor do pedido"></div>
+    <p class="how">Abra o app do seu banco, escolha <b>Pix</b> e depois <b>Ler QR Code</b>. O valor já vem preenchido.</p>
+    <div class="sum" id="paySum"></div>
+    <div class="stack">
+      <button type="button" class="btn2" id="copyPix">Copiar código Pix</button>
+      <button type="button" class="btn2" id="zapEnd" hidden>Enviar endereço no WhatsApp</button>
+      <button type="button" class="cta" id="pago">Já paguei</button>
+      <button type="button" class="linkbtn" id="voltar">Voltar e alterar o pedido</button>
+    </div>
+    <p class="ok" id="payMsg" role="status"></p>
+  </div>
+  <div class="done-card" id="okStep" hidden>
+    <img src="img/copo.webp" alt="">
+    <h2>Pedido confirmado!</h2>
+    <p>Obrigado! Assim que o Pix for confirmado, seu copo fica pronto.</p>
+    <div class="bar"><i></i></div>
+    <div class="stack"><button type="button" class="cta" id="novo">Fazer outro pedido</button></div>
+  </div>
+</div>
+<footer>
+  <div class="script">Felicitta</div>
+  <p>Levar a felicidade em 300 ml.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
